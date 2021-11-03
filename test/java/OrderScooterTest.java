@@ -8,34 +8,45 @@ public class OrderScooterTest {
 
     @Test
 
-    public void test1() {
+    public void test1FillingFormCorrectValues() {
         ScooterForWhoPage scooterForWhoPage = open("https://qa-scooter.praktikum-services.ru/", ScooterForWhoPage.class);
         scooterForWhoPage.clickCookieButton();
         scooterForWhoPage.getButtonOrderOnTheTopOfTheMainPage().click();
-        scooterForWhoPage.fillingFormOrderScooterForWhoCorrectValues();
+        scooterForWhoPage.fillingFormOrderCorrectValues();
+        scooterForWhoPage.getButtonNext().click();
 
         AboutRentPage aboutRentPage = page(AboutRentPage.class);
-        aboutRentPage.fillingFormAboutRentCorrectValues();
+        aboutRentPage.fillingFormCorrectValues();
+        aboutRentPage.getButtonOrderOnRentPage().click();
 
         WantToOrderPage wantToOrderPage = page(WantToOrderPage.class);
-        wantToOrderPage.noDoNotOrderScooter();
+        wantToOrderPage.getButtonYes().click();
 
-        open("https://qa-scooter.praktikum-services.ru/");
+        OrderCompleted orderCompleted = page(OrderCompleted.class);
+        orderCompleted.getSeeOrderStatus().click();
+
+
+    }
+
+    @Test
+
+    public void test2CheckOrderNumber() {
+        ScooterForWhoPage scooterForWhoPage = open("https://qa-scooter.praktikum-services.ru/", ScooterForWhoPage.class);
+        scooterForWhoPage.clickCookieButton();
         scooterForWhoPage.getButtonOrderStatus().click();
         scooterForWhoPage.fillingOrderNumberField();
         scooterForWhoPage.getGoButton().click();
         scooterForWhoPage.getSeeOrderStatus().shouldBe(Condition.visible);
-
     }
 
 
     @Test
-    public void test2() {
+    public void test3FillingFormIncorrectFirstName() {
 
         ScooterForWhoPage scooterForWhoPage = open("https://qa-scooter.praktikum-services.ru/", ScooterForWhoPage.class);
         scooterForWhoPage.clickCookieButton();
         scooterForWhoPage.getOrderButtonAtTheMiddle().scrollTo().click();
-        scooterForWhoPage.fillingFormOrderScooterForWhoIncorrectFirstName();
+        scooterForWhoPage.fillingFormOrderIncorrectFirstName();
         scooterForWhoPage.getErrorMessage().shouldBe(Condition.visible);
 
     }

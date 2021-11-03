@@ -36,22 +36,20 @@ public class AboutRentPage {
     @FindBy(how = How.XPATH,using = "//*[@class = 'Order_Buttons__1xGrp']/button[text() = 'Заказать']")
     private SelenideElement buttonOrderOnRentPage;
 
-    public void fillingFormAboutRentCorrectValues() {
+    public SelenideElement getButtonOrderOnRentPage() {
+        return buttonOrderOnRentPage;
+    }
+
+    public void fillingFormCorrectValues() {
         dateField.click();
         dateField11112021.click();
         rentTermField.click();
         rentTermField24Hours.click();
         colourScooterCheckbox.click();
         commentForCourierField.setValue("Без комментариев");
-        buttonOrderOnRentPage.click();
+
     }
 
-    public void fillingFormAboutRentNotSelectedDateField(){
-        rentTermField.click();
-        rentTermField24Hours.click();
-        colourScooterCheckbox.click();
-        commentForCourierField.setValue("Без комментариев");
-        buttonOrderOnRentPage.click();
-    }
+
 
 }

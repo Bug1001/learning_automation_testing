@@ -115,24 +115,6 @@ public class TheMainPage {
 
     }
 
-    public void listOfQuestionsDoubleClick() {
-        question1.doubleClick();
-        answerText1.shouldBe(visible);
-        question2.doubleClick();
-        answerText2.shouldBe(visible);
-        question3.doubleClick();
-        answerText3.shouldBe(visible);
-        question4.doubleClick();
-        answerText4.shouldBe(visible);
-        question5.doubleClick();
-        answerText5.shouldBe(visible);
-        question6.doubleClick();
-        answerText6.shouldBe(visible);
-        question7.doubleClick();
-        answerText7.shouldBe(visible);
-        question8.doubleClick();
-        answerText8.shouldBe(visible);
 
-    }
 
 }

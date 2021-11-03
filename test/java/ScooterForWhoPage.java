@@ -8,17 +8,17 @@ public class ScooterForWhoPage {
 
     //локатор кнопки заказать сверху главной страницы
     @FindBy(how = How.CLASS_NAME,using = "Button_Button__ra12g")
-    private SelenideElement buttonOrderOnTheTopOfTheMainPage;
+    private SelenideElement buttonOrderOnTheTop;
 
     //локатор кнопки заказать в центре страницы
     @FindBy(how = How.XPATH,using = "//*[@class='Home_FinishButton__1_cWm']//*[text()='Заказать']")
-    private SelenideElement orderButtonAtTheMiddleOfTheMainPage;
+    private SelenideElement orderButtonAtTheMiddle;
 
     //локатор кнопки статуса заказа
     @FindBy(how = How.CLASS_NAME,using = "Header_Link__1TAG7")
     private SelenideElement buttonOrderStatus;
 
-    //локатор поля Введите номер заказ
+    //локатор поля Введите номер заказа
     @FindBy(how = How.XPATH,using = "//*[@class='Input_InputContainer__3NykH']//*[@placeholder='Введите номер заказа']")
     private SelenideElement orderNumberField;
 
@@ -56,7 +56,7 @@ public class ScooterForWhoPage {
 
     //локатор поля кнопки Далее на странице "Для кого самокат"
     @FindBy(how = How.XPATH,using = "//*[@class = 'Order_Content__bmtHS']//button[text() = 'Далее']")
-    private SelenideElement buttonNextOnForWhoPage;
+    private SelenideElement buttonNext;
 
     //локатор кнопки куки
     @FindBy(how = How.CLASS_NAME, using = "App_CookieButton__3cvqF")
@@ -68,16 +68,20 @@ public class ScooterForWhoPage {
 
     public SelenideElement getButtonOrderOnTheTopOfTheMainPage(){
 
-        return buttonOrderOnTheTopOfTheMainPage;
+        return buttonOrderOnTheTop;
     }
 
     public SelenideElement getOrderButtonAtTheMiddle(){
 
-        return orderButtonAtTheMiddleOfTheMainPage;
+        return orderButtonAtTheMiddle;
     }
 
     public SelenideElement getButtonOrderStatus() {
         return buttonOrderStatus;
+    }
+
+    public SelenideElement getButtonNext() {
+        return buttonNext;
     }
 
     public SelenideElement getErrorMessage() {
@@ -97,17 +101,16 @@ public class ScooterForWhoPage {
         cookieButton.click();
     }
 
-    public void fillingFormOrderScooterForWhoCorrectValues() {
+    public void fillingFormOrderCorrectValues() {
         firstNameField.setValue("Иван");
         surnameField.setValue("Иванов");
         addressField.setValue("Улица Иванова");
         metroStationField.click();
         metroStationFieldFirstStation.click();
         phoneNumberField.setValue("89111111111");
-        buttonNextOnForWhoPage.click();
     }
 
-    public void fillingFormOrderScooterForWhoIncorrectFirstName() {
+    public void fillingFormOrderIncorrectFirstName() {
         firstNameField.setValue(" ");
         surnameField.setValue("Иванов");
         addressField.setValue("Улица Иванова");

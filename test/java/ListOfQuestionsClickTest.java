@@ -5,7 +5,7 @@ public class ListOfQuestionsClickTest {
 
     @Test
 
-    public void test1() {
+    public void test1QuestionsAndAnswers() {
         TheMainPage mainPageForTest = open("https://qa-scooter.praktikum-services.ru/", TheMainPage.class);
         mainPageForTest.clickCookieButton();
         mainPageForTest.getQuestion1().scrollTo();
