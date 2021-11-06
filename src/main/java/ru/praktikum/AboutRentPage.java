@@ -1,6 +1,11 @@
+package ru.praktikum;
+
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class AboutRentPage {
 
@@ -8,9 +13,9 @@ public class AboutRentPage {
     @FindBy(how = How.XPATH,using = "//input[@placeholder = '* Когда привезти самокат']")
     private SelenideElement dateField;
 
-    //локатор 11 ноября 2021 выпадающего меню даты
-    @FindBy(how = How.XPATH,using = "//*[@class='react-datepicker__week']//*[@class='react-datepicker__day react-datepicker__day--011']")
-    private SelenideElement dateField11112021;
+    //локатор календаря выпадающего меню даты
+    @FindBy(how = How.XPATH,using = "//*[@class='react-datepicker']")
+    private SelenideElement datePicker;
 
     //локатор выпадающего меню срока аренды
     @FindBy(how = How.XPATH,using = "//*[@class='Dropdown-root']//*[text() = '* Срок аренды']")
@@ -40,9 +45,25 @@ public class AboutRentPage {
         return buttonOrderOnRentPage;
     }
 
-    public void fillingFormCorrectValues() {
+    private void pickCurrentDateWithPicker(String dateToPick) {
         dateField.click();
-        dateField11112021.click();
+        datePicker.find(".react-datepicker__day--0" + dateToPick).click();
+    }
+
+    public void fillingFormCorrectValues() {
+        LocalDateTime tomorrow = LocalDateTime
+                .now()
+                .plusDays(1);  // выбираем завтрашний день
+        // Заполняем форму с помощью datepicker
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd");
+        pickCurrentDateWithPicker(dtf.format(tomorrow));
+        //
+        /*
+        // Заполняем форму с помощью текстового ввода
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        dateField.setValue(dtf.format(tomorrow));
+        dateField.pressEnter();
+       */
         rentTermField.click();
         rentTermField24Hours.click();
         colourScooterCheckbox.click();

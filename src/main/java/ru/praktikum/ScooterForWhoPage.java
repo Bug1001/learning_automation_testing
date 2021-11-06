@@ -1,3 +1,5 @@
+package ru.praktikum;
+
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;

@@ -1,7 +1,13 @@
 import com.codeborne.selenide.Condition;
 import org.junit.Test;
+import org.hamcrest.MatcherAssert;
+import static org.hamcrest.CoreMatchers.containsString;
+import ru.praktikum.AboutRentPage;
+import ru.praktikum.OrderCompletedPage;
+import ru.praktikum.ScooterForWhoPage;
+import ru.praktikum.WantToOrderPage;
+
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Command.*;
 
 
 public class OrderScooterTest {
@@ -20,10 +26,14 @@ public class OrderScooterTest {
         aboutRentPage.getButtonOrderOnRentPage().click();
 
         WantToOrderPage wantToOrderPage = page(WantToOrderPage.class);
+
         wantToOrderPage.getButtonYes().click();
 
-        OrderCompleted orderCompleted = page(OrderCompleted.class);
-        orderCompleted.getSeeOrderStatus().click();
+
+        OrderCompletedPage orderCompleted = page(OrderCompletedPage.class);
+
+        MatcherAssert.assertThat(orderCompleted.getSeeOrderStatus().getText(), containsString("Посмотреть статус"));
+
 
 
     }
