@@ -38,14 +38,6 @@ public class MainPage {
     @FindBy(how = How.XPATH,using = "//*[@class='Home_FinishButton__1_cWm']//*[text()='Заказать']")
     private SelenideElement orderButtonAtTheMiddle;
 
-    //локатор первого вопроса выпадающего меню
-    @FindBy(how = How.XPATH,using = "//*[@class='accordion__heading']//*[text()='Сколько это стоит? И как оплатить?']")
-    private SelenideElement question1;
-
-    //локатор первого ответа на вопрос выпадающего меню
-    @FindBy(how = How.XPATH,using = "//*[@aria-labelledby = 'accordion__heading-0']")
-    private SelenideElement answerText1;
-
     //локатор второго вопроса выпадающего меню
     @FindBy(how = How.XPATH,using = "//*[@class='accordion__heading']//*[text()='Хочу сразу несколько самокатов! Так можно?']")
     private SelenideElement question2;
@@ -104,3 +96,4 @@ public class MainPage {
 
 
 }
+

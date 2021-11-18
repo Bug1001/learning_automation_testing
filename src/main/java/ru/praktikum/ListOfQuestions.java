@@ -4,10 +4,12 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+
 import static com.codeborne.selenide.Condition.*;
 
 
 public class ListOfQuestions {
+
     //локатор кнопки заказать сверху главной страницы
     @FindBy(how = How.CLASS_NAME,using = "Button_Button__ra12g")
     private SelenideElement buttonOrderOnTheTopOfTheMainPage;

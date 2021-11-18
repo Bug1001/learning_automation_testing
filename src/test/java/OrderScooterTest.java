@@ -1,8 +1,13 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import org.junit.Test;
+
 import ru.praktikum.AboutRentPage;
 import ru.praktikum.OrderCompleted;
+
+import org.hamcrest.MatcherAssert;
+import static org.hamcrest.CoreMatchers.containsString;
+
 import ru.praktikum.ScooterForWhoPage;
 import ru.praktikum.WantToOrderPage;
 
@@ -24,11 +29,18 @@ public class OrderScooterTest {
         aboutRentPage.fillingFormCorrectValues("Без комментариев");
         aboutRentPage.getButtonOrderOnRentPage().click();
 
-        WantToOrderPage wantToOrderPage = Selenide.page(WantToOrderPage.class);
+
+
+        WantToOrderPage wantToOrderPage = page(WantToOrderPage.class);
+
+
         wantToOrderPage.getButtonYes().click();
 
+
         OrderCompleted orderCompleted = page(OrderCompleted.class);
-        orderCompleted.getSeeOrderStatus().click();
+
+        MatcherAssert.assertThat(orderCompleted.getSeeOrderStatus().getText(), containsString("Посмотреть статус"));
+
 
 
     }
