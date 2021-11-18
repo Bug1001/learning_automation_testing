@@ -1,11 +1,13 @@
+package ru.praktikum;
+
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.junit.Test;
+
 import static com.codeborne.selenide.Condition.*;
 
 
-public class TheMainPage {
+public class ListOfQuestions {
     //локатор кнопки заказать сверху главной страницы
     @FindBy(how = How.CLASS_NAME,using = "Button_Button__ra12g")
     private SelenideElement buttonOrderOnTheTopOfTheMainPage;
@@ -93,7 +95,7 @@ public class TheMainPage {
         cookieButton.click();
     }
 
-    @Test
+
 
     public void listOfQuestionsClick() {
         question1.click();

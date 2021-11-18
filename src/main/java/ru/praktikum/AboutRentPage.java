@@ -1,3 +1,5 @@
+package ru.praktikum;
+
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -40,13 +42,13 @@ public class AboutRentPage {
         return buttonOrderOnRentPage;
     }
 
-    public void fillingFormCorrectValues() {
+    public void fillingFormCorrectValues(String comment) {
         dateField.click();
         dateField11112021.click();
         rentTermField.click();
         rentTermField24Hours.click();
         colourScooterCheckbox.click();
-        commentForCourierField.setValue("Без комментариев");
+        commentForCourierField.setValue(comment);
 
     }
 

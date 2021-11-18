@@ -1,7 +1,12 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import org.junit.Test;
+import ru.praktikum.AboutRentPage;
+import ru.praktikum.OrderCompleted;
+import ru.praktikum.ScooterForWhoPage;
+import ru.praktikum.WantToOrderPage;
+
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Command.*;
 
 
 public class OrderScooterTest {
@@ -12,14 +17,14 @@ public class OrderScooterTest {
         ScooterForWhoPage scooterForWhoPage = open("https://qa-scooter.praktikum-services.ru/", ScooterForWhoPage.class);
         scooterForWhoPage.clickCookieButton();
         scooterForWhoPage.getButtonOrderOnTheTopOfTheMainPage().click();
-        scooterForWhoPage.fillingFormOrderCorrectValues();
+        scooterForWhoPage.fillingFormOrder("Иван", "Иванов", "ул. Иванова", "89111111111");
         scooterForWhoPage.getButtonNext().click();
 
         AboutRentPage aboutRentPage = page(AboutRentPage.class);
-        aboutRentPage.fillingFormCorrectValues();
+        aboutRentPage.fillingFormCorrectValues("Без комментариев");
         aboutRentPage.getButtonOrderOnRentPage().click();
 
-        WantToOrderPage wantToOrderPage = page(WantToOrderPage.class);
+        WantToOrderPage wantToOrderPage = Selenide.page(WantToOrderPage.class);
         wantToOrderPage.getButtonYes().click();
 
         OrderCompleted orderCompleted = page(OrderCompleted.class);
@@ -34,7 +39,7 @@ public class OrderScooterTest {
         ScooterForWhoPage scooterForWhoPage = open("https://qa-scooter.praktikum-services.ru/", ScooterForWhoPage.class);
         scooterForWhoPage.clickCookieButton();
         scooterForWhoPage.getButtonOrderStatus().click();
-        scooterForWhoPage.fillingOrderNumberField();
+        scooterForWhoPage.fillingOrderNumberField("7873");
         scooterForWhoPage.getGoButton().click();
         scooterForWhoPage.getSeeOrderStatus().shouldBe(Condition.visible);
     }
@@ -46,7 +51,7 @@ public class OrderScooterTest {
         ScooterForWhoPage scooterForWhoPage = open("https://qa-scooter.praktikum-services.ru/", ScooterForWhoPage.class);
         scooterForWhoPage.clickCookieButton();
         scooterForWhoPage.getOrderButtonAtTheMiddle().scrollTo().click();
-        scooterForWhoPage.fillingFormOrderIncorrectFirstName();
+        scooterForWhoPage.fillingFormOrder(" ", "Иванов", "ул. Иванова", "89111111111");
         scooterForWhoPage.getErrorMessage().shouldBe(Condition.visible);
 
     }

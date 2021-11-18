@@ -1,3 +1,5 @@
+package ru.praktikum;
+
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
@@ -101,27 +103,32 @@ public class ScooterForWhoPage {
         cookieButton.click();
     }
 
-    public void fillingFormOrderCorrectValues() {
-        firstNameField.setValue("Иван");
-        surnameField.setValue("Иванов");
-        addressField.setValue("Улица Иванова");
+   // String firstName;
+   // String lastName;
+   // String street;
+   // String phoneNumber;
+
+
+    public void fillingFormOrder(String firstName, String lastName, String street, String phoneNumber) {
+        firstNameField.setValue(firstName);
+        surnameField.setValue(lastName);
+        addressField.setValue(street);
         metroStationField.click();
         metroStationFieldFirstStation.click();
-        phoneNumberField.setValue("89111111111");
+        phoneNumberField.setValue(phoneNumber);
     }
 
-    public void fillingFormOrderIncorrectFirstName() {
-        firstNameField.setValue(" ");
-        surnameField.setValue("Иванов");
-        addressField.setValue("Улица Иванова");
-        metroStationField.click();
-        metroStationFieldFirstStation.click();
-        phoneNumberField.setValue("89111111111");
+    // public void fillingFormOrderIncorrectFirstName() {
+    //    firstNameField.setValue(" ");
+    //    surnameField.setValue("Иванов");
+    //    addressField.setValue("Улица Иванова");
+    //    metroStationField.click();
+    //    metroStationFieldFirstStation.click();
+    //    phoneNumberField.setValue("89111111111");
+    // }
 
-    }
-
-    public void fillingOrderNumberField(){
-        orderNumberField.setValue("7873");
+    public void fillingOrderNumberField(String orderNumber){
+        orderNumberField.setValue(orderNumber);
     }
 
 
