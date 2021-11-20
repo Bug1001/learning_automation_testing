@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Condition.*;
 //endregion
 
 public class ListOfQuestions {
-
+    //region поля
     //локатор кнопки заказать сверху главной страницы
     @FindBy(how = How.CLASS_NAME,using = "Button_Button__ra12g")
     private SelenideElement buttonOrderOnTheTopOfTheMainPage;
@@ -86,7 +86,7 @@ public class ListOfQuestions {
     //локатор восьмого ответа на вопрос выпадающего меню
     @FindBy(how = How.XPATH,using = "//*[@aria-labelledby = 'accordion__heading-7']")
     private SelenideElement answerText8;
-
+//endregion
 
     public SelenideElement getQuestion1()
     {

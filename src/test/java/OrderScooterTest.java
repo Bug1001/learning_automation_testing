@@ -1,4 +1,4 @@
-//region imports
+//region инициализация
 import com.codeborne.selenide.Condition;
 import org.junit.Test;
 
