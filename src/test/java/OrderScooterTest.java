@@ -1,3 +1,4 @@
+//region imports
 import com.codeborne.selenide.Condition;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ import ru.praktikum.ScooterForWhoPage;
 import ru.praktikum.WantToOrderPage;
 
 import static com.codeborne.selenide.Selenide.*;
-
+//endregion
 
 public class OrderScooterTest {
 

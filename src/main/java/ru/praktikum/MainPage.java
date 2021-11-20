@@ -1,9 +1,10 @@
 package ru.praktikum;
 
+//region imports
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
+//endregion
 
 public class MainPage {
     //локатор кнопки Яндекс

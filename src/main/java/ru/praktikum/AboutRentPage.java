@@ -1,10 +1,12 @@
 package ru.praktikum;
 
+//region imports
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
+//endregion
 
 public class AboutRentPage {
 

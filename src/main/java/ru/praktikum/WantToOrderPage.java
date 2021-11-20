@@ -1,8 +1,9 @@
 package ru.praktikum;
-
+//region imports
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+//endregion
 
 public class WantToOrderPage {
     //локатор кнопки Нет на странице "Хотите оформить заказ?"
