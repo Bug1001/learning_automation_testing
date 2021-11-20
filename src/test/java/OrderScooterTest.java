@@ -1,5 +1,4 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import org.junit.Test;
 
 import ru.praktikum.AboutRentPage;
