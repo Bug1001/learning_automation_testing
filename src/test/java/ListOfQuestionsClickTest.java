@@ -1,9 +1,6 @@
 //region imports
 import org.junit.Test;
-
 import ru.praktikum.ListOfQuestions;
-
-
 import static com.codeborne.selenide.Selenide.open;
 //endregion
 
